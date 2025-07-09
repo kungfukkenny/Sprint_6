@@ -3,21 +3,17 @@ package ru.yandex.scooter.tests;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import ru.yandex.scooter.pages.MainPage;
 import ru.yandex.scooter.pages.OrderPage;
 import ru.yandex.scooter.data.OrderData;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.stream.Stream;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class OrderTests {
-
     private WebDriver driver;
     private MainPage mainPage;
 
@@ -52,7 +48,6 @@ public class OrderTests {
         OrderPage orderPage = new OrderPage(driver);
         orderPage.fillOrderForm(data);
         orderPage.submitOrder();
-
         assertTrue(orderPage.isOrderSuccessDisplayed(), "Окно успешного заказа должно появиться");
     }
 
